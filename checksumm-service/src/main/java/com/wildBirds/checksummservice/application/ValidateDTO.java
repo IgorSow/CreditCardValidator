@@ -1,17 +1,17 @@
 package com.wildBirds.checksummservice.application;
 
 public class ValidateDTO {
-    public boolean innNumber;
+
+    private boolean isCheckSumCorrect;
 
     public ValidateDTO() {
     }
 
-    public boolean isInnNumber() {
-        return innNumber;
+    public boolean isCheckSumCorrect() {
+        return isCheckSumCorrect;
     }
 
-    public void setInnNumber(boolean innNumber) {
-        this.innNumber = innNumber;
+    public void setIsCheckSumCorrect(boolean isCheckSumCorrect) {
+        this.isCheckSumCorrect = isCheckSumCorrect;
     }
-
 }

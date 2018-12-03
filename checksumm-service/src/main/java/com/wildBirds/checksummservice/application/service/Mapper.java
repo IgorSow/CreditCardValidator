@@ -8,7 +8,7 @@ public class Mapper {
 
     public ValidateDTO toValidateDTO(boolean validate) {
         ValidateDTO validateDTO = new ValidateDTO();
-        validateDTO.setInnNumber(validate);
+        validateDTO.setIsCheckSumCorrect(validate);
         return validateDTO;
     }
 }
