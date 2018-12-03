@@ -11,17 +11,14 @@ import java.util.List;
 @Repository
 public class IssuerRepositoryIml {
 
-
     @PersistenceContext
     EntityManager entityManager = null;
-
 
     @Transactional
     public Issuer getIssuer(List<String> innList) {
         String query = "SELECT issuer FROM Issuer issuer " +
                 "JOIN issuer.innNumberSet innNumber " +
                 "WHERE innNumber.iinNumber in :integerList";
-
 
         return entityManager.createQuery(query, Issuer.class)
                 .setParameter("integerList", innList)

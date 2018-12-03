@@ -29,24 +29,46 @@ public class IssuerControllerTest {
     @Autowired
     IssuerService issuerService;
 
-    @Test
-    public void shouldSplitValue() {
-        //given
-        String number = "52352352352352352355";
-        //when
-        List<String> integerList = issuerService.splitNummber(number);
 
-        //then
-        for (String number2 : integerList) {
-            System.out.println(number2);
-        }
-    }
 
     @Test
     public void shouldReturnVisaCard() {
 
         //given
-        final Integer innNumber = 463634642;
+        final String innNumber = "4186786217456229";
+        final String expectedCard = "Visa";
+
+        //when
+
+        ResponseEntity<IssuerDTO> restTemplateForEntity = restTemplate.getForEntity("http://localhost:" + serviceHost + "/issuer/" + innNumber, IssuerDTO.class);
+        //then
+
+        IssuerDTO issuerDTO = restTemplateForEntity.getBody();
+
+        Assert.assertEquals(expectedCard, issuerDTO.getName());
+    }
+    @Test
+    public void shouldReturnNoCard() {
+
+        //given
+        final String innNumber = "9986786217456229";
+        final String expectedCard = null;
+
+        //when
+
+        ResponseEntity<IssuerDTO> restTemplateForEntity = restTemplate.getForEntity("http://localhost:" + serviceHost + "/issuer/" + innNumber, IssuerDTO.class);
+        //then
+
+        IssuerDTO issuerDTO = restTemplateForEntity.getBody();
+
+        Assert.assertEquals(expectedCard, issuerDTO.getName());
+    }
+
+    @Test
+    public void shouldReturnPropertyLength() {
+
+        //given
+        final String innNumber = "4186786217456229";
         final String expectedCard = "Visa";
 
         //when

@@ -3,7 +3,6 @@ package com.wildBirds.checksummservice.application.service;
 
 import com.wildBirds.checksummservice.application.IssuerDTO;
 import com.wildBirds.checksummservice.domain.model.Issuer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
@@ -36,6 +35,15 @@ public class IssuerService {
         issuerDTO.setName(issuer.getIssuerName());
 
         return issuerDTO;
+    }
+
+    public boolean isCorrectLength(String innNumber){
+
+        if ((innNumber.length() >= 12) && (innNumber.length() <= 19)){
+            return true;
+        }else {
+            return false;
+        }
     }
 
 }

@@ -15,7 +15,6 @@ public class IssuerDataAppend {
     @Autowired
     InnNumberRepository innNumberRepository;
 
-
     @Autowired
     IssuerRepository issuerRepository;
 
