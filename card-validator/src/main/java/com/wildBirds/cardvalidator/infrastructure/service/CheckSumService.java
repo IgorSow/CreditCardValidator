@@ -1,7 +1,8 @@
-package com.wildBirds.cardvalidator.application;
+package com.wildBirds.cardvalidator.infrastructure.service;
 
 
 import com.wildBirds.cardvalidator.application.DTO.ValidateDTO;
+import com.wildBirds.cardvalidator.infrastructure.service.exception.CheckSumException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -18,14 +19,14 @@ public class CheckSumService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public ValidateDTO checkCorrectSum(String number) {
+    public ValidateDTO checkCorrectSum(String number) throws CheckSumException {
         ResponseEntity<ValidateDTO> checkSummResponse = null;
         try {
             checkSummResponse = restTemplate.getForEntity(serviceUrl + "/checksum/" + number, ValidateDTO.class);
             ValidateDTO validateDTO = checkSummResponse.getBody();
             return validateDTO;
         } catch (RestClientException e) {
-            throw new RestClientException(e.toString());
+            throw new CheckSumException(e.toString());
         }
     }
 }
