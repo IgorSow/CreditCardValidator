@@ -1,4 +1,4 @@
-package com.wildBirds.issuerservice;
+package com.wildBirds.checksummservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class IssuerServiceApplicationTests {
+public class IssuerServiceAppTests {
 
 	@Test
 	public void contextLoads() {
