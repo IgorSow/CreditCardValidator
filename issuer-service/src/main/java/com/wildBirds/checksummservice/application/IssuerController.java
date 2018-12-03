@@ -1,6 +1,8 @@
-package com.wildBirds.checksummservice.application.service;
+package com.wildBirds.checksummservice.application;
 
-import com.wildBirds.checksummservice.application.IssuerDTO;
+import com.wildBirds.checksummservice.application.service.InvalidIssuerException;
+import com.wildBirds.checksummservice.application.service.InvalidLengthException;
+import com.wildBirds.checksummservice.application.service.IssuerService;
 import com.wildBirds.checksummservice.domain.model.Issuer;
 import com.wildBirds.checksummservice.infrastructure.IssuerRepositoryIml;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +51,10 @@ public class IssuerController {
             header.add("OK", "CorrectNumber");
             return new ResponseEntity(issuerDTO, header, HttpStatus.OK);
         } catch (InvalidLengthException e) {
-            header.add("Error", e.getMessage());
+            header.add("Error", "Invalid length");
             return new ResponseEntity(header, HttpStatus.BAD_REQUEST);
         } catch (InvalidIssuerException e){
-            header.add("Error", e.getMessage());
+            header.add("Error", "Issuer not found");
             return new ResponseEntity(header, HttpStatus.NOT_FOUND);
         }
 
