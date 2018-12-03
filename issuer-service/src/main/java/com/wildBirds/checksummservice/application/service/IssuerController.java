@@ -3,7 +3,6 @@ package com.wildBirds.checksummservice.application.service;
 import com.wildBirds.checksummservice.application.IssuerDTO;
 import com.wildBirds.checksummservice.domain.model.Issuer;
 import com.wildBirds.checksummservice.infrastructure.IssuerRepositoryIml;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
