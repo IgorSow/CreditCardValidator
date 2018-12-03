@@ -7,7 +7,7 @@ public class ValidateDTO {
     public ValidateDTO() {
     }
 
-    public boolean isCheckSumCorrect() {
+    public boolean getIsCheckSumCorrect() {
         return isCheckSumCorrect;
     }
 
