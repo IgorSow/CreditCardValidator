@@ -37,12 +37,12 @@ public class IssuerService {
         return issuerDTO;
     }
 
-    public boolean isCorrectLength(String innNumber){
+    public boolean isCorrectLength(String innNumber) throws InvalidLengthException {
 
         if ((innNumber.length() >= 12) && (innNumber.length() <= 19)){
             return true;
         }else {
-            return false;
+            throw new InvalidLengthException("Not appropriate length have to 12 to 19 ");
         }
     }
 
