@@ -19,7 +19,7 @@ export class ValidatorComponent implements OnInit {
 
     constructor() {
         this.host = 'http://localhost:8090/card/4516895819549900';
-
+        // this.http = http;
     }
 
     ngOnInit() {
