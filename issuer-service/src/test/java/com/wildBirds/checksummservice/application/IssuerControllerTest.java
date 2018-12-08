@@ -60,7 +60,7 @@ public class IssuerControllerTest {
 
         IssuerDTO issuerDTO = restTemplateForEntity.getBody();
 
-        Assert.assertEquals(expectedCard, issuerDTO.getName());
+        Assert.assertNull(issuerDTO);
     }
 
     @Test
@@ -78,5 +78,23 @@ public class IssuerControllerTest {
         IssuerDTO issuerDTO = restTemplateForEntity.getBody();
 
         Assert.assertEquals(expectedCard, issuerDTO.getName());
+    }
+
+    @Test
+    public void shouldReturnAmericanExpress() {
+
+        //given
+        final String innNumber = "375788678114858";
+        final String expectedCard = "American Express";
+
+        //when
+
+        ResponseEntity<IssuerDTO> restTemplateForEntity = restTemplate.getForEntity("http://localhost:" + serviceHost + "/issuer/" + innNumber, IssuerDTO.class);
+        //then
+
+        IssuerDTO issuerDTO = restTemplateForEntity.getBody();
+
+        Assert.assertEquals(expectedCard, issuerDTO.getName());
+        System.out.println(issuerDTO.getName());
     }
 }

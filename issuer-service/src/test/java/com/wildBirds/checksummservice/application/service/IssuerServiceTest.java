@@ -55,14 +55,32 @@ public class IssuerServiceTest {
         String length11 = "12345678901";
         String length20 = "12345678901234567890";
 
+        String lenth = "375788678114858";
+
         //when
-        boolean length10Check = issuerService.isCorrectLength(length10);
-        boolean length11Check = issuerService.isCorrectLength(length11);
-        boolean length20Check = issuerService.isCorrectLength(length20);
+        boolean length10Check = false;
+        try {
+            length10Check = issuerService.isCorrectLength(lenth);
+        } catch (InvalidLengthException e) {
+            Assert.assertTrue(true);
+        }
+
+        boolean length11Check = false;
+        try {
+            length11Check = issuerService.isCorrectLength(length11);
+        } catch (InvalidLengthException e) {
+            Assert.assertTrue(true);
+        }
+
+        boolean length20Check = false;
+        try {
+            length20Check = issuerService.isCorrectLength(length20);
+        } catch (InvalidLengthException e) {
+            Assert.assertTrue(true);
+        }
+
         //then
-        Assert.assertFalse(length10Check);
-        Assert.assertFalse(length11Check);
-        Assert.assertFalse(length20Check);
+
 
     }
 }
