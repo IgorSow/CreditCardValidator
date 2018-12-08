@@ -25,9 +25,11 @@ public class CardValidatorController {
 
     @CrossOrigin
     @GetMapping("{innNumber}")
+
     public ResponseEntity validateCard(@PathVariable String innNumber){
 
         HttpHeaders header = new HttpHeaders();
+//        header.add("Access-Control-Allow-Origin", "*");
         header.add("Content-Type", "application/json; charset=UTF-8");
         try {
             IssuerDTO nameIssuer = issuerCardService.getNameIssuer(innNumber);
